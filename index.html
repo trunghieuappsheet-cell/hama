@@ -1,6 +1,93 @@
-<iframe
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>HaMa Tech</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html,body{
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      background:#1e120d;
+      font-family:Arial, sans-serif;
+    }
+
+    iframe{
+      width:100%;
+      height:100%;
+      border:none;
+      position:fixed;
+      inset:0;
+    }
+
+    /* Loading */
+    .loading{
+      position:fixed;
+      inset:0;
+      background:#1e120d;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      z-index:9999;
+      color:#d39a5f;
+      transition:0.4s;
+    }
+
+    .logo{
+      width:90px;
+      margin-bottom:20px;
+      animation:pulse 2s infinite;
+    }
+
+    .text{
+      font-size:20px;
+      letter-spacing:2px;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.08);}
+      100%{transform:scale(1);}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Loading -->
+  <div class="loading" id="loading">
+    <img src="logo.png" class="logo">
+    <div class="text">HaMa Tech</div>
+  </div>
+
+  <!-- Website -->
+  <iframe
     src="https://script.google.com/macros/s/AKfycbxCFvvKasHvK9wg1FV5X7EeiVGD4Svbz7Goui4QPJ7wv1jooaLAWJ6vwefZA2T94mDd/exec"
-    width="100%"
-    height="800"
-    frameborder="0">
-</iframe>
+    onload="hideLoading()">
+  </iframe>
+
+  <script>
+    function hideLoading(){
+      document.getElementById("loading").style.opacity = "0";
+
+      setTimeout(()=>{
+        document.getElementById("loading").style.display = "none";
+      },400);
+    }
+  </script>
+
+</body>
+</html>
